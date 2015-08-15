@@ -9,8 +9,9 @@ import companyAnnualData
 
 
 proctorGamble = companyAnnualData.companyAnnualData("PG", "PWSvEbf4_oUssZ3WqynR")
-#proctorGamble.companyCodes.printAnnualData()
+
 proctorGamble.getAnnualData()
-#proctorGamble.printAnnualData()
+
 proctorGamble.exportToJSON()
+proctorGamble.exportToExcel()
 

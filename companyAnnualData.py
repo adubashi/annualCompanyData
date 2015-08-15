@@ -7,7 +7,7 @@ Created on Fri Aug 14 22:29:26 2015
 import CompanyCodes
 import Quandl
 import json
-
+import xlwt
 
 
 class companyAnnualData:
@@ -32,4 +32,18 @@ class companyAnnualData:
     def exportToJSON(self):
         with open('result.json', 'w') as fp:
             json.dump(self.annualData, fp)
+    
+    def exportToExcel(self):
+        #instantiate workbook
+        workbook = xlwt.Workbook() 
+        name = self.symbol + ".xls"
+        sheet = workbook.add_sheet(self.symbol)
+        
+        k = 0
+        for key in self.annualData:
+            sheet.write(k,0,key)
+            sheet.write(k,1,self.annualData[key])
+            k = k + 1
+
+        workbook.save(name) 
         
